@@ -10,37 +10,56 @@
 </head>
 <body>
     <div class="flex flex-col items-center justify-center h-auto">
-        <h1 class="text-3xl font-bold mb-10 lg:mr-20 mt-5">CHAUVIN</h1>
-        <img src="../static/assets/blink-stare.gif" alt="">
-        <div class="mt-10 mb-10">
-            <button class="btn btn-error">Start</button>
-            <button class="btn btn-error">SHOW CHAT💚</button>
-            <button class="btn btn-warning">End</button>
+        <h1 id="Name" class="text-3xl font-bold mb-10 lg:mr-20 mt-5">CHAUVIN</h1>
+        <img id="Chauvin" src="../static/assets/blink-stare.gif" alt="">
+        <div class="mt-10 mb-5">
+            <button id="Start" class="btn btn-warning">Start</button>
+            <button id="showText" class="btn btn-error">SHOW CHAT💚</button>
+            <button id="End" class="btn btn-warning">End</button>
         </div>
     </div>
-    <div class=" toast toast-bottom toast-end overflow-y-auto max-h-screen">
-        <div class="alert alert-info w-64 h-auto flex flex-wrap">
-          <span class="flex flex-wrap whitespace-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas perferendis distinctio ullam consequatur nesciunt tempora accusamus repudiandae alias blanditiis reiciendis. Esse, autem nobis ex saepe cum beatae ratione. Earum, omnis.</span>
+    <div id="Chat" class="hidden toast toast-bottom toast-end overflow-y-auto max-h-screen">
+        <div id="hideText" class="chat chat-end hover:text-black cursor-pointer">
+            ✖
         </div>
-        <div class="alert alert-success">
-          <span>Message sent successfully.</span>
-        </div>
-        <div class="alert alert-success">
-          <span>Message sent successfully.</span>
-        </div>
-        <div class="alert alert-success">
-          <span>Message sent successfully.</span>
-        </div>
-        <div class="alert alert-success">
-          <span>Message sent successfully.</span>
-        </div>
-        <div class="alert alert-success">
-          <span>Message sent successfully.</span>
-        </div>
-        <div class="alert alert-success">
-          <span>Message sent successfully.</span>
-        </div>
+        <div class="chat chat-end">
+            <div class="chat-bubble chat-bubble-error w-72 h-auto flex flex-wrap">
+                <span class="flex flex-wrap whitespace-normal">
+                    Hey
+                </span>
+            </div>
+          </div>
+        <div class="chat chat-start">
+            <div class="chat-bubble chat-bubble-info w-72 h-auto flex flex-wrap">
+                <span class="flex flex-wrap whitespace-normal">
+                    Hey
+                </span>
+            </div>
+          </div>
       </div>
+      <script>
+        const showTextButton = document.body.querySelector("#showText");
+        const hideTextButton = document.body.querySelector("#hideText");
+        const ChatPlace = document.body.querySelector("#Chat");
+        const Chauvin = document.getElementById("Chauvin");
+        const Start = document.getElementById("Start");
+        const End = document.getElementById("End");
+        const Name = document.getElementById("Name");
+        showTextButton.addEventListener("click", ()=>{
+            ChatPlace.classList.remove("hidden");
+        })
+        hideTextButton.addEventListener("click", ()=>{
+            ChatPlace.classList.add("hidden")
+        })
+        End.addEventListener("click",()=>{
+            Chauvin.setAttribute("src", "../static/assets/i-dont-believe-in-fate-destiny.gif")
+            Name.innerHTML = ""
+        })
+        Start.addEventListener("click",()=>{
+            Chauvin.setAttribute("src", "../static/assets/blink-stare.gif")
+            Name.innerHTML = "CHAUVIN IS THINKING..."
+        })
+      </script>
     <script src="../static/scripts.js"></script>
 </body>
 </html>
